@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordStrengthBar } from 'angular2-password-strength-bar';
+
 
 import {
   UserRoutingModule,
@@ -18,7 +20,8 @@ import {
   ],
   declarations: [
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    PasswordStrengthBar
   ],
   providers: [
     UserService

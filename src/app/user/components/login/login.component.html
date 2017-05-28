@@ -1,18 +1,22 @@
-<h3>Log In</h3>
-<form [formGroup]="form" (ngSubmit)="login()">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input formControlName="email" type="text" class="form-control" [(ngModel)]="user.email">
-    <div *ngIf="!form.controls.email.valid && !form.controls.email.pristine " class="alert alert-danger">
-      Valid email is required!
+<div layout="row" layout-align="center start">
+    <div layout="row" flex class="layout-max-width">
+        <h3>Log In</h3>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input formControlName="email" type="text" class="form-control" [(ngModel)]="user.email" required placeholder="type your email address" pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'>
+                <div *ngIf="!form.controls.email.valid && !form.controls.email.pristine " class="alert alert-danger">
+                    Valid email is required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input formControlName="password" type="password" class="form-control" [(ngModel)]="user.password" required placeholder="type your password">
+                <div *ngIf="!form.controls.password.valid && !form.controls.password.pristine " class="alert alert-danger">
+                    Password is required and should be at least 6 characters long!
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid || loading">Log In</button>
+        </form>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input formControlName="password" type="password" class="form-control" [(ngModel)]="user.password">
-    <div *ngIf="!form.controls.password.valid && !form.controls.password.pristine " class="alert alert-danger">
-      Password is required and should be at least 6 characters long!
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!form.valid || loading">Log In</button>
-</form>
+</div>
